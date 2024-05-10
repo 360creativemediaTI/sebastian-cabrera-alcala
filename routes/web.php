@@ -20,4 +20,4 @@ Route::resource('/moneda', 'moneda')->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('moneda', 'MonedasController@store')->name('home.store');

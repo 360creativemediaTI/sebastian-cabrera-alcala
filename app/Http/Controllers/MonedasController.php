@@ -12,10 +12,14 @@ class MonedasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+    public function index(Request $request)
+    {   
+        if($request->ajax()){
+            return Model::where('id', auth()->id())->get();
+        }else{
+            return view('home');
+        }
+    }  
 
     /**
      * Show the form for creating a new resource.
