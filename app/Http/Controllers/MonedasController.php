@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class moneda extends Controller
+class MonedasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,9 +35,11 @@ class moneda extends Controller
     public function store(Request $request)
     {
         $moneda = new Moneda();
-        $moneda->nombre = $request->nombre;
-        $moneda->descripcion = $request->descripcion;
-        $moneda->user_id = auth()->id();
+        $moneda->monto = $request->monto;
+        $moneda->moneda_origen = $request->moneda_origen;
+        $moneda->moneda_destino = $request->moneda_destino;
+        $moneda->tipo_cambio = $request->tipo_cambio;
+
         $moneda->save();
     
         return $moneda;
